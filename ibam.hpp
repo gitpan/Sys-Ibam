@@ -36,24 +36,44 @@ using namespace std;
 #include <sys/stat.h>  // for mkdir
 #include <sys/types.h> // for mkdir
 
-class apm_status
+class battery_status
 {
-   private:
-      string driverVersion;
-      string biosVersion;
-      int    apmFlags;
-      int    acLineStatus;
-      int    batteryStatus;
-      int    batteryFlag;
-      int    remainingBatteryPercent;
-      int    remainingBatteryLifeSeconds;
-   public:
+	protected:
+		int acLineStatus;
+		int batteryStatus;
+		int chargeStatus;
+		int remainingBatteryPercent;
+		int remainingBatteryLifeSeconds;
+		string Path;
+	public:
       inline int   onBattery(void) const;
       inline int   charging(void)  const;
       inline int   percent(void)   const;
       inline int   seconds(void)   const;
-      inline void update(char *path="/proc/apm");
-      inline apm_status(char *path="/proc/apm");
+      virtual inline void update(void) = 0;
+	  inline battery_status(string path);
+	  virtual inline ~battery_status(void);
+};
+
+class apm_status : public battery_status
+{
+	public:
+		inline void update(void);
+		inline apm_status(string path="/proc/apm");
+};
+
+class pmu_status : public battery_status
+{
+	public:
+		inline void update(void);
+		inline pmu_status(string path="/proc/pmu");
+};
+
+class acpi_status : public battery_status
+{
+	public:
+		inline void update(void);
+		inline acpi_status(string path="/proc/acpi");
 };
 
 class percent_data
@@ -86,7 +106,7 @@ class ibam
    private:
       percent_data data;
       int         data_changed;    // 1 if save of ibam.rc demanded
-      apm_status  apm;
+      battery_status  *apm;
       percent_data battery;
       int         battery_loaded;
       int         battery_changed;

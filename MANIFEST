@@ -1,16 +1,12 @@
 Changes
-const-c.inc
-const-xs.inc
 ibam.hpp
 ibam.inl
 Ibam.xs
 Makefile.PL
 MANIFEST
-perlobject.map
 ppport.h
 README
 t/Sys-Ibam.t
 typemap
-fallback/const-c.inc
-fallback/const-xs.inc
 lib/Sys/Ibam.pm
+META.yml                                 Module meta-data (added by MakeMaker)
