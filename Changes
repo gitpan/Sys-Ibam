@@ -1,5 +1,8 @@
 Revision history for Perl extension Sys::Ibam.
 
+0.02  Mon Dez 27 21:48:02 2004
+	- Make proper use of XS.
+
 0.01  Mon Jul 12 06:17:55 2004
 	- original version; created by h2xs 1.23 with options
 		-O -n Sys::Ibam

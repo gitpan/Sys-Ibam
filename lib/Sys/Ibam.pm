@@ -5,23 +5,7 @@ use warnings;
 
 use AutoLoader;
 
-our $VERSION = '0.01';
-
-sub AUTOLOAD {
-	my $self = shift;
-    our $AUTOLOAD;
-    my $sub;
-
-    ($sub = $AUTOLOAD) =~ s/.*:://;
-	return if $sub eq 'DESTROY';
-	unless( $self->can("_$sub") ) {
-		require Carp;
-		Carp::croak("Can't locate method $sub via package ".__PACKAGE__);
-	}
-
-	$sub = \&{ "_$sub" };
-	$self->$sub(@_);
-}
+our $VERSION = '0.02';
 
 require XSLoader;
 XSLoader::load('Sys::Ibam', $VERSION);

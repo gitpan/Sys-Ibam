@@ -11,7 +11,7 @@ extern "C" {
 
 MODULE = Sys::Ibam		PACKAGE = Sys::Ibam		
 
-PROTOTYPES: DISABLE
+PROTOTYPES: ENABLE
 
 INCLUDE: const-xs.inc
 
@@ -22,191 +22,93 @@ void
 ibam::DESTROY()
 
 void
-ibam::_import_old_data()
+ibam::import_old_data()
 	CODE:
 		THIS->import();
 
 void
-ibam::_load_battery()
-	CODE:
-		THIS->load_battery();
+ibam::load_battery()
 
 void
-ibam::_load_charge()
-	CODE:
-		THIS->load_charge();
+ibam::load_charge()
 
 void
-ibam::_update_statistics()
-	CODE:
-		THIS->update_statistics();
+ibam::update_statistics()
 
 void
-ibam::_ignore_statistics()
-	CODE:
-		THIS->ignore_statistics();
+ibam::ignore_statistics()
 
 void
-ibam::_save()
-	CODE:
-		THIS->save();
+ibam::save()
 
 string
-ibam::_profile_filename(n, type)
+ibam::profile_filename(n, type)
 		int n
 		int type
-	CODE:
-		RETVAL = THIS->profile_filename(n, type);
-	OUTPUT:
-		RETVAL
 
 int
-ibam::_current_profile_number()
-	CODE:
-		RETVAL = THIS->current_profile_number();
-	OUTPUT:
-		RETVAL
+ibam::current_profile_number()
 
 int
-ibam::_current_profile_type()
-	CODE:
-		RETVAL = THIS->current_profile_type();
-	OUTPUT:
-		RETVAL
+ibam::current_profile_type()
 
 void
-ibam::_set_profile_logging(n)
+ibam::set_profile_logging(n)
 		int n
-	CODE:
-		THIS->set_profile_logging(n);
 
 int
-ibam::_profile_logging_setting()
-	CODE:
-		RETVAL = THIS->profile_logging_setting();
-	OUTPUT:
-		RETVAL
+ibam::profile_logging_setting()
 
 int
-ibam::_seconds_left_battery_bios()
-	CODE:
-		RETVAL = THIS->seconds_left_battery_bios();
-	OUTPUT:
-		RETVAL
+ibam::seconds_left_battery_bios()
 
 int
-ibam::_seconds_left_battery()
-	CODE:
-		RETVAL = THIS->seconds_left_battery();
-	OUTPUT:
-		RETVAL
+ibam::seconds_left_battery()
 
 int
-ibam::_seconds_left_battery_adaptive()
-	CODE:
-		RETVAL = THIS->seconds_left_battery_adaptive();
-	OUTPUT:
-		RETVAL
+ibam::seconds_left_battery_adaptive()
 
 int
-ibam::_percent_battery_bios()
-	CODE:
-		RETVAL = THIS->percent_battery_bios();
-	OUTPUT:
-		RETVAL
+ibam::percent_battery_bios()
 
 int
-ibam::_percent_battery()
-	CODE:
-		RETVAL = THIS->percent_battery();
-	OUTPUT:
-		RETVAL
+ibam::percent_battery()
 
 int
-ibam::_seconds_left_charge()
-	CODE:
-		RETVAL = THIS->seconds_left_charge();
-	OUTPUT:
-		RETVAL
+ibam::seconds_left_charge()
 
 int
-ibam::_seconds_left_charge_adaptive()
-	CODE:
-		RETVAL = THIS->seconds_left_charge_adaptive();
-	OUTPUT:
-		RETVAL
+ibam::seconds_left_charge_adaptive()
 
 int
-ibam::_percent_charge()
-	CODE:
-		RETVAL = THIS->percent_charge();
-	OUTPUT:
-		RETVAL
+ibam::percent_charge()
 
 int
-ibam::_seconds_battery_total()
-	CODE:
-		RETVAL = THIS->seconds_battery_total();
-	OUTPUT:
-		RETVAL
+ibam::seconds_battery_total()
 
 int
-ibam::_seconds_battery_total_adaptive()
-	CODE:
-		RETVAL = THIS->seconds_battery_total_adaptive();
-	OUTPUT:
-		RETVAL
+ibam::seconds_battery_total_adaptive()
 
 int
-ibam::_seconds_charge_total()
-	CODE:
-		RETVAL = THIS->seconds_charge_total();
-	OUTPUT:
-		RETVAL
+ibam::seconds_charge_total()
 
 int
-ibam::_seconds_charge_total_adaptive()
-	CODE:
-		RETVAL = THIS->seconds_charge_total_adaptive();
-	OUTPUT:
-		RETVAL
+ibam::seconds_charge_total_adaptive()
 
 int
-ibam::_seconds_battery_correction()
-	CODE:
-		RETVAL = THIS->seconds_battery_correction();
-	OUTPUT:
-		RETVAL
+ibam::seconds_battery_correction()
 
 int
-ibam::_seconds_charge_correction()
-	CODE:
-		RETVAL = THIS->seconds_charge_correction();
-	OUTPUT:
-		RETVAL
+ibam::seconds_charge_correction()
 
 int
-ibam::_onBattery()
-	CODE:
-		RETVAL = THIS->onBattery();
-	OUTPUT:
-		RETVAL
+ibam::onBattery()
 
 int
-ibam::_charging()
-	CODE:
-		RETVAL = THIS->charging();
-	OUTPUT:
-		RETVAL
+ibam::charging()
 
 int
-ibam::_valid()
-	CODE:
-		RETVAL = THIS->valid();
-	OUTPUT:
-		RETVAL
+ibam::valid()
 
 void
-ibam::_update()
-	CODE:
-		THIS->update();
+ibam::update()
