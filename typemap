@@ -1,0 +1,7 @@
+TYPEMAP
+ibam* O_OBJECT
+string T_STRING
+
+OUTPUT
+T_STRING
+	sv_setpv((SV*)$arg, $var.c_str());

@@ -1,0 +1,6 @@
+Revision history for Perl extension Sys::Ibam.
+
+0.01  Mon Jul 12 06:17:55 2004
+	- original version; created by h2xs 1.23 with options
+		-O -n Sys::Ibam
+
